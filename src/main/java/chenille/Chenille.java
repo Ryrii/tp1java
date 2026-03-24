@@ -1,25 +1,37 @@
 package chenille;
 
+import geometrie.Direction;
+
 import java.util.List;
 
 public class Chenille {
-    // definir la tete et les anneaux
+    private Tete tete;
+    private Anneau[] anneaux;
 
     public Chenille(int nbAnneaux, int xTete, int yTete) {
-        // A completer
+        tete = new Tete(xTete,yTete);
+        anneaux = new Anneau[nbAnneaux];
+        for (int i = 0; i < nbAnneaux; i++) {
+            anneaux[i] = new Anneau(xTete-i-1,yTete);
+        }
     }
 
     public void deplacer(int i, int i1) {
-        // A completer
+        tete.deplacer();
+        for (int j = anneaux.length-1; j <= 0; j--) {
+            anneaux[j].deplacer(anneaux[j-1]);
+            System.out.println(anneaux[j].x());
+            System.out.println(anneaux[j-1].x());
+        }
     }
 
     // retourne une COPIE de la tete de la chenille
     public Tete tete() {
-        return null; // A modifier
+        return this.tete; // A modifier
     }
 
     // retourne une COPIE des anneaux de la chenille
-    public List<Anneau> anneaux() {
-        return null; // A modifier
+    public Anneau[] anneaux() {
+        return this.anneaux; // A modifier
     }
 }

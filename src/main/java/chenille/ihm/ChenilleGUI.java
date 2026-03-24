@@ -34,6 +34,7 @@ public class ChenilleGUI extends JFrame {
     public ChenilleGUI(int nbAnneaux, int xTete, int yTete) {
         chenille = new Chenille(5, 10, 10);
 
+
         setTitle("Chenille Simulation");
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,7 +107,7 @@ public class ChenilleGUI extends JFrame {
         }
 
         private Tete tete() { return chenille.tete(); }
-        private List<Anneau> anneaux() { return chenille.anneaux(); }
+        private Anneau[] anneaux() { return chenille.anneaux(); }
     }
 
 }
